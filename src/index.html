@@ -57,11 +57,18 @@
         tarteaucitron.user.gajsMore = function () { /* add here your optionnal _ga.push() */ };
         (tarteaucitron.job = tarteaucitron.job || []).push('gajs');
     </script>
+    <script>
+        document.getElementById('button').addEventListener('click', function() {
+            const iframeContainer = document.getElementById('iframe');
+            iframeContainer.style.display = 'block';
+        });
+    </script>
 </head>
 <body>
 
+<button id="button" type="button"> Open ALEA</button>
 
-<iframe src="https://test.duerp.com/" id="iframe"></iframe>
-<iframe src="https://tech-homies.io/" id="iframe2"></iframe>
+
+<iframe style="display: none;" src="https://rgpd-child.vercel.app/" id="iframe"></iframe>
 </body>
 </html>
