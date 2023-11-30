@@ -56,19 +56,41 @@
         tarteaucitron.user.gajsUa = 'UA-XXXXXXXX-X';
         tarteaucitron.user.gajsMore = function () { /* add here your optionnal _ga.push() */ };
         (tarteaucitron.job = tarteaucitron.job || []).push('gajs');
+        tarteaucitron.user.googlemapsKey = 'API KEY';
+        (tarteaucitron.job = tarteaucitron.job || []).push('googlemaps');
     </script>
-    <script>
-        document.getElementById('button').addEventListener('click', function() {
-            const iframeContainer = document.getElementById('iframe');
-            iframeContainer.style.display = 'block';
-        });
-    </script>
+
+
 </head>
 <body>
 
-<button id="button" type="button"> Open ALEA</button>
+<button id="buttonALEA" type="button">Open ALEA</button>
 
 
 <iframe style="display: none;" src="https://rgpd-child.vercel.app/" id="iframe"></iframe>
+
+<script>
+    document.getElementById('buttonALEA').addEventListener('click', function() {
+        function getCookie(name) {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                if (cookie.startsWith(name + '=')) {
+                    return cookie.substring(name.length + 1);
+                }
+            }
+            return null;
+        }
+
+        const  cookie = getCookie('tarteaucitron');
+
+
+
+        const iframeContainer = document.getElementById('iframe');
+        iframeContainer.style.display = 'block';
+        const message = 'Bonjour depuis la page parente!';
+        iframe.contentWindow.postMessage(cookie, '*');
+    });
+</script>
 </body>
 </html>
