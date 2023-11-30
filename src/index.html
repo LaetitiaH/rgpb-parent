@@ -64,31 +64,44 @@
 </head>
 <body>
 
-<button id="buttonALEA" type="button">Open ALEA</button>
+<button id="buttonALEA" type="button">Open ALEA sans privacy</button>
 
-
+<button id="buttonALEA2" type="button">Open ALEA avec privacy</button>
 <iframe width="900px" height="900px" style="display: none;" src="https://rgpd-child.vercel.app?privacy=false" id="iframe"></iframe>
+<iframe width="900px" height="900px" style="display: none;" src="https://rgpd-child.vercel.app?privacy=true" id="iframe2"></iframe>
 
 <script>
-    document.getElementById('buttonALEA').addEventListener('click', function() {
-        function getCookie(name) {
-            var cookies = document.cookie.split(';');
-            for (var i = 0; i < cookies.length; i++) {
-                var cookie = cookies[i].trim();
-                if (cookie.startsWith(name + '=')) {
-                    return cookie.substring(name.length + 1);
-                }
+    function getCookie(name) {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i].trim();
+            if (cookie.startsWith(name + '=')) {
+                return cookie.substring(name.length + 1);
             }
-            return null;
         }
+        return null;
+    }
+
+
+    document.getElementById('buttonALEA').addEventListener('click', function() {
+
 
         const  cookie = getCookie('tarteaucitron');
 
-
-
         const iframeContainer = document.getElementById('iframe');
         iframeContainer.style.display = 'block';
-        iframe.contentWindow.postMessage(cookie, '*');
+        iframe.contentWindow.postMessage(cookie, 'alea');
+    });
+
+
+    document.getElementById('buttonALEA2').addEventListener('click', function() {
+
+
+        const  cookie = getCookie('tarteaucitron');
+
+        const iframeContainer = document.getElementById('iframe2');
+        iframeContainer.style.display = 'block';
+        iframe.contentWindow.postMessage(cookie, 'alea');
     });
 </script>
 </body>
