@@ -81,11 +81,12 @@
 
 
         const  cookie = getCookie('tarteaucitron');
-
+        const message = {type: 'privacy', privacy:cookie}
+        debugger
         const iframeContainer = document.getElementById('iframe');
         iframeContainer.style.display = 'block';
         iframeContainer.src = 'https://rgpd-child.vercel.app?privacy=false';
-        iframe.contentWindow.postMessage(cookie, '*');
+        iframe.contentWindow.postMessage(message, '*');
     });
 
 
@@ -97,7 +98,7 @@ const message = {type: 'privacy', privacy:cookie}
         const iframeContainer = document.getElementById('iframe2');
         iframeContainer.style.display = 'block';
         iframeContainer.src = 'https://rgpd-child.vercel.app?privacy=true';
-        debugger
+
         iframe.contentWindow.postMessage(message, '*');
     });
 </script>
