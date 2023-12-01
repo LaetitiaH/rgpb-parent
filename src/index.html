@@ -67,8 +67,8 @@
 <button id="buttonALEA" type="button">Open ALEA sans privacy</button>
 
 <button id="buttonALEA2" type="button">Open ALEA avec privacy</button>
-<iframe width="900px" height="900px" style="display: none;" src="https://rgpd-child.vercel.app?privacy=false" id="iframe"></iframe>
-<iframe width="900px" height="900px" style="display: none;" src="https://rgpd-child.vercel.app?privacy=true" id="iframe2"></iframe>
+<iframe width="900px" height="900px" style="display: none;" src="" id="iframe"></iframe>
+<iframe width="900px" height="900px" style="display: none;" src="" id="iframe2"></iframe>
 
 <script>
     function getCookie(name) {
@@ -90,6 +90,7 @@
 
         const iframeContainer = document.getElementById('iframe');
         iframeContainer.style.display = 'block';
+        iframeContainer.src = 'https://rgpd-child.vercel.app?privacy=false';
         iframe.contentWindow.postMessage(cookie, '*');
     });
 
@@ -101,6 +102,7 @@
 
         const iframeContainer = document.getElementById('iframe2');
         iframeContainer.style.display = 'block';
+        iframeContainer.src = 'https://rgpd-child.vercel.app?privacy=true';
         iframe.contentWindow.postMessage(cookie, '*');
     });
 </script>
