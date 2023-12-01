@@ -81,8 +81,7 @@
 
 
         const  cookie = getCookie('tarteaucitron');
-        const message = {type: 'privacy', privacy:cookie}
-        debugger
+        const message = {type: 'privacy', privacy:cookie, name: 'tarteaucitron'}
         const iframeContainer = document.getElementById('iframe');
         iframeContainer.style.display = 'block';
         iframeContainer.src = 'https://rgpd-child.vercel.app?privacy=false';
