@@ -104,10 +104,8 @@ const message = {type: 'privacy', privacy:cookie}
     document.getElementById('buttonALEA3').addEventListener('click', function() {
         const iframeContainer = document.getElementById('iframe');
         iframeContainer.style.display = 'block';
-        iframeContainer.src = 'https://isea-dev.duerp.com';
-        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOiIxNzAzMDYwNTk0IiwiaWF0IjoiMTcwMjk3NDE5NCIsImlzcyI6IkRVRVJQIEFQSSIsIm1haWwiOiIiLCJuYW1lIjoianByIiwidXNlcklEIjoiMiIsInVzZXJUeXBlIjoiMSJ9.QriHJUl412WykE348__p4XjW8DlsSUNPY2OjWSvP9-c='
+        iframeContainer.src = 'http://localhost:8080/etablissement';
 
-        document.cookie = `accessToken=${token}; path=/;SameSite=None; Secure`;
     });
 </script>
 </body>
