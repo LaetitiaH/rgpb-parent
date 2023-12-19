@@ -61,6 +61,7 @@
 <button id="buttonALEA" type="button">Open ALEA sans privacy</button>
 
 <button id="buttonALEA2" type="button">Open ALEA avec privacy</button>
+<button id="buttonALEA3" type="button">Open ALEA iframe</button>
 <iframe width="900px" height="900px" style="display: none;" src="" id="iframe"></iframe>
 <iframe width="900px" height="900px" style="display: none;" src="" id="iframe2"></iframe>
 
@@ -78,7 +79,6 @@
 
 
     document.getElementById('buttonALEA').addEventListener('click', function() {
-// debugger
         const  cookie = getCookie('tarteaucitron');
         const message = {type: 'privacy', privacy:cookie}
         const iframeContainer = document.getElementById('iframe');
@@ -93,12 +93,21 @@
 
         const  cookie = getCookie('tarteaucitron');
 const message = {type: 'privacy', privacy:cookie}
-        // debugger;
         const iframeContainer = document.getElementById('iframe2');
         iframeContainer.style.display = 'block';
         iframeContainer.src = 'https://rgpd-child.vercel.app?privacy=true';
 
         iframe.contentWindow.postMessage(message, '*');
+    });
+
+
+    document.getElementById('buttonALEA3').addEventListener('click', function() {
+        const iframeContainer = document.getElementById('iframe');
+        iframeContainer.style.display = 'block';
+        iframeContainer.src = 'https://isea-dev.duerp.com';
+        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOiIxNzAzMDYwNTk0IiwiaWF0IjoiMTcwMjk3NDE5NCIsImlzcyI6IkRVRVJQIEFQSSIsIm1haWwiOiIiLCJuYW1lIjoianByIiwidXNlcklEIjoiMiIsInVzZXJUeXBlIjoiMSJ9.QriHJUl412WykE348__p4XjW8DlsSUNPY2OjWSvP9-c='
+
+        document.cookie = `accessToken=${token}; path=/;SameSite=None; Secure`;
     });
 </script>
 </body>
